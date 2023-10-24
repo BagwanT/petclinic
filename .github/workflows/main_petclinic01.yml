@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy WAR app to Azure Web App - petclinic01
+name: Build and deploy JAR app to Azure Web App - petclinic01
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.war'
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'petclinic01'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1CB4C1AF8EB846A7B9CBFF3081A14F85 }}
-          package: '*.war'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8721A5A14CA94B489897137B9E78EAC4 }}
+          package: '*.jar'
